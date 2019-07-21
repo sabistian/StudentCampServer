@@ -15,6 +15,7 @@ public class CampusStudent {
 	private String createTime;   //报名时间
 	private String userName;  
 	private String stuGrade;     //学生年级
+	//private String groupId;
 	
 	public String getStuName() {
 		return stuName;
@@ -88,4 +89,10 @@ public class CampusStudent {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	/*public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}*/
 }

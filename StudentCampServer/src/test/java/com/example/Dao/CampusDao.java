@@ -193,7 +193,6 @@ public class CampusDao extends SuperDao{
 				return UpDateCampusSchoolMsg(stuName,stuSex,stuGrade,stuSchool,stuTel,stuHobby,stuMail,stuClub,userName);
 			}
 			else {
-				campusMapper.updateTmpNumAdd();
 				return InsertCampusSchoolMsg(stuName,stuSex,stuGrade,stuSchool,stuTel,stuHobby,stuMail,stuClub,userName);
 			}
 		}
@@ -204,6 +203,7 @@ public class CampusDao extends SuperDao{
 			this.responseBody.remove("list");
 			int res = campusMapper.updateStu(stuName, stuSex, stuGrade, stuSchool, stuTel, stuHobby, stuMail, stuClub, userName);
 			if(res != 0) {
+				campusMapper.updateTmpNumSub();
 				this.SetSuccess();
 			}
 			else {
@@ -280,7 +280,9 @@ public class CampusDao extends SuperDao{
 		public Map<String, Object> confirmCampusStudent(String userName) throws DataAccessException {
 			this.responseBody.remove("list");
 			int res =  campusMapper.confirmStuByStuUserName(userName);
+			
 			if( res != 0) {
+				campusMapper.updateTmpNumAdd();
 				this.SetSuccess();
 			}
 			else {

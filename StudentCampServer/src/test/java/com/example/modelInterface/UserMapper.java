@@ -45,7 +45,13 @@ public interface UserMapper {
 		ArrayList<User> queryUserTypeByUserName(@Param("username") String userName);
 		
 		//更新分组信息
-		@Update("update user set type_id=#{type_id} where userName=#{userName}")
-		int updateMsg(@Param("type_id") String type_id,@Param("userName") String userName) throws DataAccessException;
+		@Update("update user set type_id=#{type_id} where userName=#{username}")
+		int updateMsg(@Param("type_id") String type_id,@Param("username") String userName) throws DataAccessException;
+		
+		//更新分组信息
+		@Update("update user set username=#{username} where password=#{password}")
+		int updatePassWord(@Param("username") String username,@Param("password") String password) throws DataAccessException;
+		
+		
 		
 }

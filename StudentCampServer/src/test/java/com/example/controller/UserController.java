@@ -20,7 +20,6 @@ public class UserController {
 	private UserDao userDao;
 	
 	@RequestMapping(value="/queryUserInfoByUserName")
-	
 	public Map<String, Object> queryUserInfo(String userName) {
 		System.out.println(userName);
 		return userDao.queryUserInfo(userName);
@@ -50,11 +49,18 @@ public class UserController {
 		return userDao.queryUserType(userName);
 	}
 	
-	//127.0.0.1:8080/queryUserTypeByUserName?userName=XinQ
-	@RequestMapping(value="/enchangeType")
+	//127.0.0.1:8080/exchangeType
+	@RequestMapping(value="/exchangeType")
 	public Map<String, Object> enchangeType(String user1Name,String user2Name) {
 		return userDao.enchangeType(user1Name,user2Name);
 	}
+	
+	//127.0.0.1:8080/changePassWord?userName=XinQ&newPassWord
+	@RequestMapping(value="/changePassword")
+	public Map<String, Object> changePassWord(String userName,String newPassWord) {
+		return userDao.changePassWord(userName,newPassWord);
+	}
+	
 }
 
 

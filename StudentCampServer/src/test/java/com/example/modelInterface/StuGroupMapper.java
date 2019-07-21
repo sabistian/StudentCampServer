@@ -86,4 +86,8 @@ public interface StuGroupMapper {
 		//调整分组
 		@Update("update group_student set groupId=#{groupId} where userName=#{userName}")
 	    int updateStu(@Param("userName") String userName,@Param("groupId") String groupId) throws DataAccessException;
+		
+		//更新组号
+		@Update("update campus_student set groupId= #{groupId} where userName=#{userName}")
+	    int updateGroup(@Param("groupId") String groupId,@Param("userName") String userName) throws DataAccessException;
 }

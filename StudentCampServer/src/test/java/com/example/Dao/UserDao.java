@@ -73,6 +73,22 @@ public class UserDao extends SuperDao{
 		return this.responseBody;
 	}
 	
+	public Map<String, Object> changePassWord(String userName,String newPassWord) {
+		this.responseBody.remove("list");
+		List<User> users = userMapper.queryUserInfo(userName);
+		if(!users.isEmpty()) {
+			this.responseBody.put("result", "SUCCESS");
+			this.responseBody.put("errorMessage", "");
+			userMapper.updatePassWord(userName, newPassWord);
+		}
+		else {
+			this.responseBody.put("result", "ERROR");
+			this.responseBody.put("errorMessage", "用户不存在");
+			
+		}
+		return this.responseBody;
+	}
+	
 	public Map<String, Object> register(String userName, String password,String typeID) throws DataAccessException{
 		this.responseBody.remove("list");
 		if(userMapper.insert(userName, password, typeID) == 1)

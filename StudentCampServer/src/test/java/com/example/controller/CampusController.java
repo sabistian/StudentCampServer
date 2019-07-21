@@ -94,6 +94,7 @@ public class CampusController {
 			return campusDao.SetCampusStudent(stuName,stuSex,stuGrade,stuSchool,stuTel,stuHobby,stuMail,stuClub,userName);
 		}catch (DataAccessException e){
 			campusDao.SetError();
+			//campusDao.responseBody.put("errorMessage", e);
 			campusDao.responseBody.put("errorMessage", "操作失败");
 	        return campusDao.responseBody;
 	    }
